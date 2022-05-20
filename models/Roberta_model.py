@@ -1,7 +1,7 @@
 from transformers import RobertaTokenizer, RobertaForSequenceClassification
 from .basic_model import BasicModel
 from torch.utils.data import Dataset, DataLoader
-from data.set_dataset import get_data
+from .set_dataset import get_data
 import torch
 import tqdm
 
