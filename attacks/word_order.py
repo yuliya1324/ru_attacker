@@ -1,4 +1,4 @@
-from attacks.basic_attack import BasicAttack
+from .attacks.basic_attack import BasicAttack
 import nltk
 import random
 

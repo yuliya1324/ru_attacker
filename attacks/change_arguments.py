@@ -4,7 +4,7 @@ from natasha import (
     NewsSyntaxParser,
     Doc
 )
-from attacks.basic_attack import BasicAttack
+from .attacks.basic_attack import BasicAttack
 import pymorphy2
 
 __all__ = ["ChangeArguments"]

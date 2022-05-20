@@ -1,6 +1,6 @@
 from transformers import T5Tokenizer, T5ForConditionalGeneration
 from typing import List, Dict
-from models.basic_model import BasicModel
+from .models.basic_model import BasicModel
 import torch
 from torch.utils.data import Dataset, DataLoader
 import re
