@@ -3,7 +3,7 @@ import numpy as np
 import tensorflow_hub as hub
 import tensorflow_text
 
-embed = hub.load("attacks/universal-sentence-encoder-multilingual_3")#"https://tfhub.dev/google/universal-sentence-encoder-multilingual/3")
+embed = hub.load("https://tfhub.dev/google/universal-sentence-encoder-multilingual/3")
 tool = language_tool_python.LanguageTool('ru-RU')
 
 
