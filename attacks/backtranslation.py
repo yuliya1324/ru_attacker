@@ -1,7 +1,7 @@
-from ..attacks.basic_attack import BasicAttack
+from .basic_attack import BasicAttack
 from transformers import M2M100ForConditionalGeneration, M2M100Tokenizer
 import torch
-from .attacks.utils import check_grammar, check_semantics
+from .utils import check_grammar, check_semantics
 import random
 
 __all__ = ["BackTranslation"]

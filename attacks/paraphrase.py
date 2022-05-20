@@ -1,6 +1,6 @@
-from .attacks.basic_attack import BasicAttack
+from .basic_attack import BasicAttack
 import torch
-from .attacks.utils import check_grammar, check_semantics
+from .utils import check_grammar, check_semantics
 from transformers import T5ForConditionalGeneration, T5Tokenizer
 
 __all__ = ["Paraphrase"]

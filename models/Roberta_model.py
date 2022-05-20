@@ -1,5 +1,5 @@
 from transformers import RobertaTokenizer, RobertaForSequenceClassification
-from .models.basic_model import BasicModel
+from .basic_model import BasicModel
 from torch.utils.data import Dataset, DataLoader
 from data.set_dataset import get_data
 import torch
