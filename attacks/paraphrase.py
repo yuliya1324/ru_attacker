@@ -73,4 +73,5 @@ class Paraphrase(BasicAttack):
         print(
             f"Accuracy before attack {round(correct / total, 2)} --> Accuracy after attack {round(correct_attack / total, 2)}"
         )
+        print(f"Success rate {round(results['attack'].count('succeeded') / len(results['attack']), 2)}")
         return results
