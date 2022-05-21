@@ -11,7 +11,7 @@ class BasicAttack(ABC):
     @staticmethod
     def print_results(results):
         di = {1: "entailment", 0: "not_entailment"}
-        if results["attacked label"][-1] == None:
+        if results["attacked label"][-1] != None:
             print(f"""
                   [Succeeded / Failed / Skipped / Total] {results["attack"].count("succeeded")} / {results["attack"].count("failed")} / {results["attack"].count("skipped")} / {len(results["attack"])}:
                   {di[results["original label"][-1]]} --> {di[results["attacked label"][-1]]}

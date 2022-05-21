@@ -56,6 +56,7 @@ class BackTranslation(BasicAttack):
             if label == prediction:
                 correct += 1
                 last = None
+                success = False
                 random.shuffle(self.languages)
                 for lang in self.languages:
                     transformed = self.translate_back(lang, hypothesis)
@@ -72,28 +73,29 @@ class BackTranslation(BasicAttack):
                         results["attacked label"].append(prediction)
                         results["attack"].append("succeeded")
                         self.print_results(results)
-                        last = None
+                        success = True
                         break
                     else:
                         last = transformed
-                if last:
-                    correct_attack += 1
-                    results["original label"].append(label)
-                    results["original premise"].append(premise)
-                    results["original hypothesis"].append(hypothesis)
-                    results["transformed"].append(last)
-                    results["attacked label"].append(label)
-                    results["attack"].append("failed")
-                    self.print_results(results)
-                else:
-                    correct_attack += 1
-                    results["original label"].append(label)
-                    results["original premise"].append(premise)
-                    results["original hypothesis"].append(hypothesis)
-                    results["transformed"].append(None)
-                    results["attack"].append("skipped")
-                    results["attacked label"].append(None)
-                    self.print_results(results)
+                if not success:
+                    if last:
+                        correct_attack += 1
+                        results["original label"].append(label)
+                        results["original premise"].append(premise)
+                        results["original hypothesis"].append(hypothesis)
+                        results["transformed"].append(last)
+                        results["attacked label"].append(label)
+                        results["attack"].append("failed")
+                        self.print_results(results)
+                    else:
+                        correct_attack += 1
+                        results["original label"].append(label)
+                        results["original premise"].append(premise)
+                        results["original hypothesis"].append(hypothesis)
+                        results["transformed"].append(None)
+                        results["attack"].append("skipped")
+                        results["attacked label"].append(None)
+                        self.print_results(results)
         print(
             f"Accuracy before attack {round(correct / total, 2)} --> Accuracy after attack {round(correct_attack / total, 2)}"
         )
