@@ -31,19 +31,18 @@ class Summarization(BasicAttack):
             premise = row["premise"]
             hypothesis = row["hypothesis"]
             label = row["label"]
-            results["original label"].append(label)
-            results["original premise"].append(premise)
-            results["original hypothesis"].append(hypothesis)
-            if len(premise) < 200:
-                correct += 1
-                results["attacked label"].append(None)
-                results["transformed"].append(None)
-                results["attack"].append("skipped")
-                self.print_results(results)
-                continue
             prediction = model.predict(model.prepare_data(premise, hypothesis))
             if label == prediction:
+                results["original label"].append(label)
+                results["original premise"].append(premise)
+                results["original hypothesis"].append(hypothesis)
                 correct += 1
+                if len(premise) < 200:
+                    results["attacked label"].append(None)
+                    results["transformed"].append(None)
+                    results["attack"].append("skipped")
+                    self.print_results(results)
+                    continue
                 transformed = self.summarizer(premise, max_length=50)[0]["summary_text"]
                 prediction = model.predict(model.prepare_data(premise, transformed))
                 results["attacked label"].append(prediction)
