@@ -38,6 +38,7 @@ class Summarization(BasicAttack):
                 results["original hypothesis"].append(hypothesis)
                 correct += 1
                 if len(premise) < 200:
+                    correct_attack += 1
                     results["attacked label"].append(None)
                     results["transformed"].append(None)
                     results["attack"].append("skipped")
