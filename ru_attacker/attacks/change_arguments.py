@@ -90,6 +90,7 @@ class ChangeArguments(BasicAttack):
         total = 0
         correct = 0
         correct_attack = 0
+        correct_after = 0
         for i, row in dataset.iterrows():
             total += 1
             premise = row["premise"]
@@ -111,6 +112,8 @@ class ChangeArguments(BasicAttack):
                     continue
                 prediction = model.predict(model.prepare_data(premise, transformed))
                 results["attacked label"].append(prediction)
+                if label == prediction:
+                    correct_after += 1
                 if prediction == 1:
                     correct_attack += 1
                     results["attack"].append("succeeded")
@@ -119,7 +122,7 @@ class ChangeArguments(BasicAttack):
                     results["attack"].append("failed")
                     self.print_results(results)
         print(
-            f"Accuracy before attack {round(correct / total, 2)} --> Accuracy after attack {round(correct_attack / total, 2)}"
+            f"Accuracy before attack {round(correct / total, 2)} --> Accuracy after attack {round(correct_after / total, 2)}"
         )
         print(f"Success rate {round(results['attack'].count('succeeded') / len(results['attack']), 2)}")
         return results
