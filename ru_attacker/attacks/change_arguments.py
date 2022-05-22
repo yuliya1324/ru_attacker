@@ -111,7 +111,7 @@ class ChangeArguments(BasicAttack):
                     continue
                 prediction = model.predict(model.prepare_data(premise, transformed))
                 results["attacked label"].append(prediction)
-                if label == prediction:
+                if prediction == 1:
                     correct_attack += 1
                     results["attack"].append("succeeded")
                     self.print_results(results)

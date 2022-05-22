@@ -35,7 +35,7 @@ class WordOrder(BasicAttack):
                 results["original premise"].append(premise)
                 results["original hypothesis"].append(hypothesis)
                 results["transformed"].append(transformed)
-                if label == prediction:
+                if prediction == 1:
                     correct_attack += 1
                     results["attack"].append("succeeded")
                     self.print_results(results)
