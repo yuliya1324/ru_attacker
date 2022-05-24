@@ -1,6 +1,6 @@
-# ru_attacker
+# Robustness Evaluation of Pre-trained Language Models in the Russian Language
 
-This is a tool for attacking Russian NLP models
+This is a repo with experiments for *Robustness Evaluation of Pre-trained Language Models in the Russian Language* and a tool `ru_attacker` for attacking Russian NLP models
 
 ### Installation
 ```
@@ -42,3 +42,17 @@ Convert results to DataFrame
 ```
 >>> dataframe = pd.DataFrame(results)
 ```
+
+### Experiments
+
+All the data used in experiments and the results are in 
+[`data`](https://github.com/yuliya1324/ru_attacker/tree/main/data) 
+folder ([`TERRa`](https://github.com/yuliya1324/ru_attacker/tree/main/data/TERRa) and 
+[`results`](https://github.com/yuliya1324/ru_attacker/tree/main/data/results) correspondingly).
+
+All experiments can be reproduced in [`Experiments.ipynb`](https://github.com/yuliya1324/ru_attacker/blob/main/Experiments.ipynb).
+
+Models checkpoints are available via:
+- [ruT5-large](https://drive.google.com/file/d/1NmyPu_VCgR4IO3PIcyV4BHMShYGhqtSJ/view?usp=sharing)
+- [ruRoberta-large](https://drive.google.com/file/d/1llS2LbnW9KREFAHGCS1EteIUOKE6WO7U/view?usp=sharing)
+
