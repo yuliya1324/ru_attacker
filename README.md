@@ -24,13 +24,13 @@ Set dataset
 
 Set attack
 ```
->>> from ru_attacker.ru_attacker.attacks import WordOrder
+>>> from ru_attacker.attacks import WordOrder
 >>> word_order_attack = WordOrder()
 ```
 
 Attack model and view results
 ```
->>> results = word_order_attack.attack(ruT5, data)
+>>> results = word_order_attack.attack(ruRoberta, data)
                   [Succeeded / Failed / Skipped / Total] 0 / 1 / 0 / 1:
                   entailment --> not_entailment
                   original premise: """Решение носит символический характер, так как взыскать компенсацию практически невозможно"", - отмечается в сообщении."
@@ -40,8 +40,11 @@ Attack model and view results
 ```
 Convert results to DataFrame
 ```
+>>> import pandas as pd
 >>> dataframe = pd.DataFrame(results)
 ```
+
+Here is [`Tutorial`](https://github.com/yuliya1324/ru_attacker/blob/main/Tutorial.ipynb)
 
 ### Experiments
 
