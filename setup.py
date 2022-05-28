@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
 	name="ru_attacker",
-	version="0.0.2",
+	version="0.0.4",
 	author="Julia Korotkova",
 	author_email="koylenka15@gmail.com",
 	description="A python package for attacking Russian NLP models",

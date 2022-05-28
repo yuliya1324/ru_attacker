@@ -51,7 +51,6 @@ class DatasetTERRa(Dataset):
 class RobertaModel(BasicModel):
     def __init__(self, model_dir):
         super().__init__()
-        # self.model = torch.load(model_dir, map_location=torch.device(self.device))
         self.model = RobertaForSequenceClassification.from_pretrained(model_dir)
         self.model.to(self.device).eval()
         self.tokenizer = RobertaTokenizer.from_pretrained(model_dir)
