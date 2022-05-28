@@ -1,5 +1,16 @@
 class Attack:
+    """
+    A wrapper for attacks
+    """
     def __init__(self, transformation, goal_function, type_perturbation, constraints=None, search_method=None):
+        """
+        It contains of four main components and a type of perturbation which is required for the RTE task
+        :param transformation: an obligatory component, type of transformation
+        :param goal_function: an obligatory component, type of goal function
+        :param type_perturbation: an obligatory component, to what part the perturbation is applied
+        :param constraints: a facultative component, constraints to filter samples
+        :param search_method: a facultative component, a method to find attack
+        """
         self.transformation = transformation
         self.goal_function = goal_function
         self.constraints = constraints
@@ -7,6 +18,12 @@ class Attack:
         self.type_perturbation = type_perturbation
 
     def attack(self, model, dataset):
+        """
+        a method to attack models
+        :param model: model to attack
+        :param dataset: dataset on which the attack is performed
+        :return: results of attack
+        """
         results = {
             "original label": [],
             "attacked label": [],
